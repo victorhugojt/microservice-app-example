@@ -1,0 +1,3 @@
+Build java image
+Implements a Docker compose
+Test locally all images
