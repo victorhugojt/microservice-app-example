@@ -1,3 +1,10 @@
 Build java image
 Implements a Docker compose
 Test locally all images
+
+users
+auth
+redis
+todo
+front
+log

@@ -2,8 +2,8 @@ FROM python:3.6
 
 
 ADD main.py .
-ADD requeriments.txt .
+ADD requirements.txt .
 
-RUN pip install -r requeriments.txt
+RUN pip install -r requirements.txt
 
 CMD [“python”, “./main.py”]
