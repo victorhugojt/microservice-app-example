@@ -2,11 +2,12 @@ FROM golang:1.18.2-alpine3.16 AS BuildStage
 
 WORKDIR /app
 
-RUN go mod download
+COPY * ./
 
-COPY *.go ./
-
-RUN go build -o /auth main.go
+ENV GO111MODULE=on
+RUN go mod init github.com/bortizf/microservice-app-example/tree/master/auth-api
+RUN go mod tidy
+RUN go build -o /auth
 
 
 FROM scratch
