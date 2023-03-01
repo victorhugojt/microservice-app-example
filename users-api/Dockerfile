@@ -1,16 +1,19 @@
 FROM maven:3.5-jdk-8-alpine as builder
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY src /app/src
-COPY pom.xml /app/src
+COPY . /usr/src/app
 
-RUN mvn -f /app/src/pom.xml clean install package
+RUN mvn package 
 
 
 FROM adoptopenjdk/openjdk8
 
-COPY --from=builder ./target/users-api-0.0.1-SNAPSHOT.jar /app
+ARG JAR_FILE=users-api-0.0.1-SNAPSHOT.jar
+
+WORKDIR /opt/app
+
+COPY --from=builder /usr/src/app/target/${JAR_FILE} /opt/app/
 
 EXPOSE 8083
 
