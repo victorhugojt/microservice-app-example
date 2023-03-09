@@ -1,21 +1,24 @@
 FROM golang:1.18.2-alpine3.16 AS BuildStage
 
-WORKDIR /app
+WORKDIR /src/app
 
-COPY * ./
+COPY *.go ./
 
 ENV GO111MODULE=on
 RUN go mod init github.com/bortizf/microservice-app-example/tree/master/auth-api
 RUN go mod tidy
-RUN go build -o /auth
+RUN go mod download
+RUN go build -o server
 
 
-FROM scratch
+FROM alpine
 
-WORKDIR /
+WORKDIR /root/
 
-COPY --from=BuildStage /auth /auth
+COPY --from=BuildStage /src/app ./app
 
-EXPOSE 8083
+EXPOSE 8000
 
-ENTRYPOINT [ "/auth" ]
+CMD [ "./app/server" ]
+
+# CMD [ "sleep", "20000" ]
