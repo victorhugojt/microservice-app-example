@@ -12,19 +12,7 @@ log
 
 docker pull redis
 
-docker build -t victorhugojt/devops_rampup_users .
 
-docker build -t victorhugojt/devops_rampup_log_processor .
-
-docker build -t victorhugojt/devops_rampup_todos .
-
-docker build -t victorhugojt/devops_rampup_front .
-
-docker build -t victorhugojt/devops_rampup_auth .
-
-docker rmi -f `docker image ls | grep '<none>' | awk '{print $3}'`
-
-docker build -t victorhugojt/devops_rampup_redis .
 
 -----------------------------------------------------------
 
@@ -35,3 +23,7 @@ docker run --name redis -d victorhugojt/devops_rampup_redis
 docker exec -it <mycontainer> bash
 
 docker exec -it 898127ad69f7 bash
+
+-----------------------------------------------------------
+
+ curl -X GET -H "Authorization: Bearer PRFT" http://127.0.0.1:8083/users/:username
