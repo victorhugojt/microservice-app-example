@@ -35,5 +35,3 @@ docker run --name redis -d victorhugojt/devops_rampup_redis
 docker exec -it <mycontainer> bash
 
 docker exec -it 898127ad69f7 bash
-
-898127ad69f7
