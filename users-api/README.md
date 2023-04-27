@@ -23,6 +23,9 @@ JWT_SECRET=PRFT SERVER_PORT=8083 java -jar target/users-api-0.0.1-SNAPSHOT.jar
 In case you need to test this API, you can use it as follows:
 ```
  curl -X GET -H "Authorization: Bearer $token" http://127.0.0.1:8083/users/:username
+
+ curl -X GET -H "Authorization: Bearer PRFT" http://127.0.0.1:8083/users/admin
+
 ```
 where `$token` is the response you get from [Auth API](/auth-api). 
 

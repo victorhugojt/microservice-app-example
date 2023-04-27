@@ -1,0 +1,29 @@
+
+Test locally all images
+
+Order 
+
+users
+auth
+redis
+todo
+front
+log
+
+docker pull redis
+
+
+
+-----------------------------------------------------------
+
+Order : redis, users, auth, redis, todo, front, log
+
+docker run --name redis -d victorhugojt/devops_rampup_redis
+
+docker exec -it <mycontainer> bash
+
+docker exec -it 898127ad69f7 bash
+
+-----------------------------------------------------------
+
+ curl -X GET -H "Authorization: Bearer PRFT" http://127.0.0.1:8083/users/:username
