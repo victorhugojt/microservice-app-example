@@ -44,7 +44,8 @@ Following users are hardcoded for you:
 ## Usage
 In case you need to test this API, you can use it as follows:
 ```
- curl -X POST  http://127.0.0.1:8000/login -d '{"username": "admin","password": "admin"}'
+ curl -X POST  http://127.0.0.1:8000/login -d '{"username": "johnd","password": "foo"}'
+ curl -X POST  http://10.1.80.133:8000/login -d '{"username": "admin","password": "admin"}'
 ```
 
 ## Dependencies
