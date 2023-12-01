@@ -19,7 +19,7 @@ jobs:
           command: "echo Hello, World!"
   build-log-processor:
     docker:
-      - image: cimg/python:3.6.0
+      - image: cimg/python:3.6
     steps:
       - checkout
       - restore_cache:
