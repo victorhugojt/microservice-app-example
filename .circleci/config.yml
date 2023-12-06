@@ -64,7 +64,7 @@ jobs:
           name: Build and Push application Docker image
           command: |
             TAG=1.1.$CIRCLE_BUILD_NUM
-            docker build -t $DOCKERHUB_USERNAME/devops_rampup_log_processor:$TAG .
+            docker build -f ./log-message-processor/Dockerfile -t $DOCKERHUB_USERNAME/devops_rampup_log_processor:$TAG .
             echo $DOCKERHUB_PASSWORD | docker login -u $DOCKERHUB_USERNAME --password-stdin
             docker push $DOCKERHUB_USERNAME/devops_rampup_log_processor:$TAG
 
@@ -74,7 +74,7 @@ workflows:
   say-hello-workflow:
     jobs:
       - say-hello
-  log-processor-tests-workflow:
+  tests-log-processor-workflow:
     jobs:
       - tests-log-processor
   build-log-procesor-image-workflow:
