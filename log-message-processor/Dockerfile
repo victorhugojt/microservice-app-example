@@ -1,8 +1,8 @@
 FROM python:3.6
 
 
-ADD ./main.py .
-ADD ./requirements.txt .
+ADD ./log-message-processor/main.py .
+ADD ./log-message-processor/requirements.txt .
 
 RUN pip install -r requirements.txt
 
